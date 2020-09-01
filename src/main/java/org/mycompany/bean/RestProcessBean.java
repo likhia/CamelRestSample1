@@ -1,12 +1,14 @@
 package org.mycompany.bean;
 
 import org.apache.camel.Exchange;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
 
-
+@Component("processBean")
 @Configuration
 @RefreshScope
 public class RestProcessBean {
@@ -25,6 +27,7 @@ public class RestProcessBean {
     	InputBean inputParam = (InputBean) exchange.getIn().getBody(InputBean.class);
         
         out.setResult(header + " " + inputParam.getField1() + " " + inputParam.getField2() );
+        
         
         
        return out;
