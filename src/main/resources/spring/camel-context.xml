@@ -3,6 +3,7 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="        http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd        http://camel.apache.org/schema/spring       https://camel.apache.org/schema/spring/camel-spring.xsd">
     <bean class="org.mycompany.bean.RestProcessor" id="processor"/>
     <bean class="org.mycompany.bean.QuickConfiguration" id="quickConfiguration"/>
+    <bean class="org.mycompany.bean.RestProcessBean" id="processBean"/>
     
     <camelContext id="camel" xmlns="http://camel.apache.org/schema/spring">
         <restConfiguration bindingMode="json" component="spark-rest" port="9091"/>
@@ -13,7 +14,7 @@
                 produces="application/json"
                 type="org.mycompany.bean.InputBean" uri="process">
                 <route>
-                    <process ref="processor"/>
+                	<bean ref="processBean" method="process" />
                 </route>
             </post>
         </rest>

@@ -1,5 +1,6 @@
 org/mycompany/bean/OutputBean.class
 org/mycompany/bean/InputBean.class
 org/mycompany/bean/RestProcessor.class
+org/mycompany/bean/RestProcessBean.class
 org/mycompany/Application.class
 org/mycompany/bean/QuickConfiguration.class
