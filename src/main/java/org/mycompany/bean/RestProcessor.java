@@ -1,21 +1,13 @@
 package org.mycompany.bean;
 
-import java.util.List;
 import org.apache.camel.Exchange;
 import org.apache.camel.Processor;
-import org.springframework.stereotype.Component;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.cloud.context.config.annotation.RefreshScope;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.beans.factory.annotation.Autowired;
 
-
-@Component(value = "processor")
-@Configuration
-@RefreshScope
 public class RestProcessor implements Processor {
 	
-	@Value("${app.header.message}")
-	private String header = "Hello";
+	@Autowired
+	QuickConfiguration config;
 
     public void process(Exchange exchange) throws Exception {
     	
@@ -24,7 +16,7 @@ public class RestProcessor implements Processor {
         //Get input from exchange
     	InputBean inputParam = (InputBean) exchange.getIn().getBody(InputBean.class);
         
-        out.setResult(header + " " + inputParam.getField1() + " " + inputParam.getField2() );
+        out.setResult(config.getPrefix() + " " + inputParam.getField1() + " " + inputParam.getField2() );
         //set output in exchange
         exchange.getOut().setBody(out);
     }
