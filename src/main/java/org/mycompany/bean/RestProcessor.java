@@ -3,11 +3,15 @@ package org.mycompany.bean;
 import java.util.List;
 import org.apache.camel.Exchange;
 import org.apache.camel.Processor;
-import org.springframework.stereotype.*;
+import org.springframework.stereotype.Component;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.context.annotation.Configuration;
 
 
+@Component(value = "processor")
+@Configuration
+@RefreshScope
 public class RestProcessor implements Processor {
 	
 	@Value("${app.header.message}")

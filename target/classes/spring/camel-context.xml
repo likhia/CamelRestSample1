@@ -15,13 +15,13 @@
                 </route>
             </post>
         </rest>
-        <rest>
-        	<get uri="/rest2">
-            	<route>
-            		<transform>
-            			<constant>rest2</constant>
-            		</transform>
-            	</route>
+        <rest id="rest-dafd7bfc-c07f-4c8d-b36a-1ef102f1b0b2">
+            <get id="get-5d89eb57-bfd6-4e76-809c-99d51d65adff" uri="/rest2">
+                <route>
+                    <transform>
+                        <constant>rest2</constant>
+                    </transform>
+                </route>
             </get>
         </rest>
     </camelContext>
