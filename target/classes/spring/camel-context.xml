@@ -13,7 +13,8 @@
                 produces="application/json"
                 type="org.mycompany.bean.InputBean" uri="process">
                 <route>
-                	<bean ref="processBean" method="process" />
+                	<process ref="processor" />
+                	<!--  <bean ref="processBean" method="process" /> -->
                 </route>
             </post>
         </rest>
